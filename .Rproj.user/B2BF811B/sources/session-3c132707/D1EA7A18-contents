@@ -1,0 +1,1090 @@
+---
+title: "AI-Enabled Clinical Decision Support Tools for Mental Healthcare: A Product Review"
+author: "Anne-Kathrin Kleine, Eesha Kokje, Pia Hummelsberger, Eva Lermer, & Susanne Gaube"
+bibliography: "../../config/Products.bib"
+keywords: "artificial intelligence, mental healthcare"
+csl: "../../config/apa.csl"
+execute:
+  echo: false
+  warning: false
+  message: false
+  cache: true
+  include: true
+prefer-html: true
+format: 
+  docx:
+    reference-doc: "../../config/template_word.docx"
+  html:
+    toc: true
+    toc-depth: 3
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Abstract
+
+# Introduction
+
+Artificial intelligence (AI) is advancing numerous sectors within the
+healthcare industry. AI algorithms may be leveraged to predict patient
+outcomes or the onset of diseases; the power of AI may be harnessed to
+develop personalized treatment plans, taking into account unique factors
+like genetic information, lifestyle, and environmental conditions; and
+AI algorithms may be used to improve the speed and accuracy of medical
+diagnoses based on image data from X-rays or CT scans [@yu_etal18b].
+
+While AI has made considerable progress in various areas of healthcare,
+its integration into mental health services has been comparatively
+slower. This is mainly because mental health conditions are more complex
+and nuanced than many physical health conditions, with biological,
+psychological, and social aspects often intertwined [@stoewen22;
+@graham_etal19; @lee_etal21k]. The data and decision-making involved in
+psychiatry are much harder to handle compared to specific tasks like,
+for example, finding a tumor in an image, which are easily managed by
+current AI techniques [@lee_etal21k]. However, the potential for AI in
+mental healthcare is vast and its usage is gradually gaining momentum.
+Next to AI-powered mental health treatments available to patients
+directly, AI-enabled clinical decision support systems (AI-CDSS) are
+being developed to aid mental health practitioners in detecting mental
+health conditions and offering personalized treatment for their patients
+[@aafjes-vandoorn_etal21; @chekroud_etal21; @cho_etal19; @graham_etal19;
+@shatte_etal19; @lee_etal21k; @liu_etal20r; @abd-alrazaq_etal22a]. In
+comparison to conventional CDSS, AI-CDSS leverage big data and AI for
+decision-making rather than relying on pre-programmed medical knowledge
+[@sutton_etal20c]. AI-CDSS for mental healthcare may be used to detect
+mental health conditions, predict patient progress, or predict patient
+responses to various treatments [@amann_etal22; @kleine_etal23g]. One
+example of an AI-CDSS for mental healthcare is *Aifred*, which has been
+developed to help clinicians select suitable treatments for major
+depressive disorder (MDD). The tool incorporates a deep-learning model
+that was trained and validated on clinical and demographic data to
+support treatment selection by providing individualized probabilities of
+remission for specific treatment options [@benrimoh_etal21].
+
+Despite substantial efforts invested into the creation of effective and
+precise AI-CDSS for mental healthcare, their practical implementation in
+clinical settings still remains limited [@chekroud_etal21;
+@lee_etal21k]. Non-adoption stems from complications brought by
+technological and administrative issues coupled with human reluctance.
+Concerning technological challenges, training data biases or external
+validation shortages may deter AI solution performance in medical
+practice [@chekroud_etal21; @aafjes-vandoorn_etal21]. Administrative
+hurdles include the expenses and intricacy associated with incorporating
+AI-CDSS into existing clinical procedures. These refer not only the
+technology's cost but also the necessary training to enable healthcare
+professionals to utilize the systems effectively [@koutsouleris_etal22;
+@lewis_etal18; @boswell_etal23]. Finally, significant barriers may arise
+from human factors. Clinicians may resist AI integration due to job
+insecurities, distrust in AI's decision-making processes, or simple
+comfort with traditional practice methods. Similarly, patients could
+show aversion to AI-CDSS over reduced human interaction concerns or
+potential invasions of their privacy [@koutsouleris_etal22;
+@lewis_etal18; @boswell_etal23; @kleine_etal23d].
+
+The stringent regulatory requirements for AI-CDSS as medical devices in
+the European and United States law can help ensure their quality,
+effectiveness, and safe integration into healthcare, potentially easing
+concerns around adoption and fostering more confidence in their benefits
+[@varghese20]. Medical devices are products that have a medical purpose
+and are intended by the manufacturer for use in humans. AI-CDSS for
+mental healthcare fulfill the criteria of medical devices if they are
+intended for use in the diagnosis, cure, mitigation, treatment, or
+prevention of disease [@europeancommission19;
+@foodanddrugadministration19; @usfoodanddrugadministration13;
+@worldhealthorganization17; @varghese20]. As such, AI-CDSS can only be
+commercially sold if they have obtained the Conformité Européene (CE)
+mark in the European Economic Area (EEA), are UK Conformity Assessed
+(UKCA), or received approval or clearance from the Food and Drug
+Administration (FDA) in the United States (US).[^1] The FDA and the CE
+(UKCA) markings assure high-quality standards in safety and efficacy,
+guaranteeing that the device has been thoroughly reviewed and tested
+[@muehlematter_etal21; @zaki_etal19]. Receiving regulatory approval has
+multiple benefits for a company. First, it provides a level of assurance
+to consumers and healthcare professionals about the product's safety and
+efficacy, potentially enhancing the product's market appeal and
+acceptance. Second, it might be a prerequisite to enter certain markets
+or healthcare systems, including insurance coverage for the product.
+Finally, regulatory approval can attract investors and significantly
+increase the value of a company [@allen19; @zhu_etal22h; @goldenberg20].
+
+[^1]: Following Brexit, medical devices to be sold in Great Britain (GB)
+    must obtain the UKCA mark which is GB's equivalent to the CE
+    marking. The UKCA mark, while essentially equivalent to the CE in
+    terms of the standards it adheres to, is GB's own certification
+    mark. The UKCA mark is not recognized in the EEA and, therefore,
+    cannot replace the CE mark for products being sold in the EEA.
+
+There exist three pathways for FDA clearances of AI medical devices.
+First, a device that can be considered substantially equivalent to a
+legally marketed device can be cleared under the 510(k) process
+[@Premarket23]. Second, newly developed AI software with no substantial
+equivalent in the market may apply for a De Novo classification request
+[@Novo23]. Finally, the most stringent pathway is the premarket approval
+(PMA) [@Premarket23a]. This is necessary for high-risk Class III medical
+devices that sustain or support life, are implanted, or present
+potential unreasonable risk of illness or injury [@benjamens_etal20a].
+For simplicity, we use the term clearance to refer to the marketing
+authorization of the devices via all pathways. CE (or UKCA) marking
+indicates conformity with health, safety, and environmental protection
+standards for products sold within the EEA (or GB). For medical and
+in-vitro diagnostic (IVD) devices, manufacturers need to comply with the
+specific regulations stipulated by the Medical Device Regulation (MDR)
+and the In Vitro Diagnostic Regulation (IVDR) respectively in order to
+achieve CE marking. These regulations encompass various risk categories,
+necessitating differing assessment routes for manufacturers. For CE
+marking under the MDR and IVDR, there exist three main routes -
+Conformity Assessment, Notified Body Opinion and Design Dossier
+Examination. The Conformity Assessment applies to lower-risk devices
+such as Class I medical devices and Class A IVDs, allowing manufacturers
+to assess the conformity themselves. However, for higher-risk devices
+such as Class IIa or Class IIb medical devices and Class B, C, or D IVD
+devices, these must be assessed by a Notified Body -- an organization
+designated by an EEA country to assess the conformity of certain
+products to the safety and health requirements. This also includes the
+Design Dossier Examination for Class III medical devices, ensuring that
+the highest level of safety and efficacy is met. Slightly different
+rules apply to products marketed in GB, please see @han_etal22d.
+
+Verifiable and trustworthy scientific evidence is essential to ensuring
+patient safety and clinician confidence in AI-CDSS [@liu_etal20q].
+However, past research has shown that algorithms have been approved by
+regulatory agencies with little available efficacy data and minimal
+evidence of their clinical utility [@yearley_etal23;
+@vanleeuwen_etal21]. These findings generate doubts regarding the
+efficacy, generalizability, and potential bias in regulated AI-CDSS
+[@yearley_etal23]. Accordingly, in addition to examining the regulatory
+status of AI-CDSS for mental healthcare, it is crucial to evaluate the
+scientific evidence proving their effectiveness and efficacy when used
+in clinical practice.
+
+The primary goal of this review is to juxtapose the expectations and
+apprehensions about the capabilities of AI-CDSS for mental healthcare
+against the actual state of existing and regulated products. There is
+extensive controversy surrounding the use of AI in healthcare in
+general, and in in mental healthcare in particular. For instance,
+debates on the use of AI in mental healthcare have raised issues about
+the potential dehumanization of healing relationships
+[@simon_yarborough20; @rosenfeld_etal21]. Additionally, healthcare
+professionals have expressed fears of AI systems supplanting them
+[@noble_etal22b; @fiske_etal19d]. Conversely, there are hopes that AI
+systems could supplement clinical intuition by enhancing diagnostic
+precision, identifying risk factors for mental disorders, and
+facilitating personalized treatment approaches [@lee_etal21k]. In order
+to provide a reality check, this review illuminates the scope of
+regulated AI-CDSS for mental healthcare, their regulatory status, and an
+analysis of scientific evidence underpinning their clinical utility. The
+current insight may assist mental health practitioners and clinics in
+assessing the benefit of different AI-CDSS for use in clinical settings.
+Patients may gain a better comprehension of how available AI tools could
+supplement the mental healthcare they receive. For regulatory bodies and
+policymakers, the research results reveal potential areas of improvement
+in the governance and regulation of AI-CDSS. Lastly, tool developers
+gain insights into the current market and future trajectories for the
+development of AI-CDSS for mental healthcare.
+
+# Materials and methods
+
+## Search strategies for product identification
+
+We employed various strategies to find relevant products online. First,
+we relied on data gathered during a patent review of AI-enabled tools
+for mental healthcare [@kleine_etal23g]. Although not all patents
+transform into commercialized products and not all products are
+patented, there is a considerable overlap between patents and new
+products [@woo_etal15; @researchandmarkets20]. We scrutinized the
+assignee details of patents to identify pertinent products[^2].
+Comprehensive information regarding the patent search method and
+selection criteria can be found in @kleine_etal23g.
+
+[^2]: The assignee is the individual or entity, such as a company, to
+    whom the inventor, or their legal representative, has transferred
+    ownership of the patent. The assignee possesses the legal rights to
+    the patent, including control over its use, sale, or licensing
+
+Second, we explored exhibitor lists from significant conventions and
+exhibitions for practitioners and companies creating and marketing
+AI-CDSS for mental healthcare. Specifically, we examined the exhibitor
+lists of the American Psychological Association Congress, the American
+Psychiatric Association Congress, the Association for Behavioral and
+Cognitive Therapies, the Anxiety and Depression Association of America,
+and the German Psychotherapy Congress for relevant businesses.
+Subsequently, we visited the companies' websites to verify if they
+offered AI-CDSS for mental healthcare.
+
+Third, we used curated and regularly updated databases listing regulated
+AI medical devices. In particular, we reviewed the FDA Artificial
+Intelligence and Machine Learning (AI/ML)-Enabled Medical Devices
+Database [@usfoodanddrugadministration22], the Medical AI Evaluation
+Database [@wu_etal21j], the Medical Futurist AI-Based Algorithms
+Database [@themedicalfuturist23], and the HealthSkouts FDA/CE Certified
+Health App Database [@healthskouts23] for relevant products.
+
+We identified relevant products in three steps. First, product or
+company names were identified from the patent data, the exhibitor lists,
+and the supplementary online databases. Second, we used these product or
+company names to search for vendor websites. Finally, we thoroughly
+investigated the information presented on vendor websites to determine
+whether a product should be included in the review.
+
+## Inclusion criteria and coding of product information
+
+We applied three inclusion criteria to the selection of AI-CDSS for
+mental healthcare. First, the product should be a medical device. Thus,
+we excluded products targeting disorders unrelated to mental health,
+wellness apps, products merely used for organizing and managing patient
+information, and educational and research products or services. Second,
+the product should include AI software in its core functionality. We
+classify a technology as AI/ML based if official FDA announcements,
+communications by the company or other publicly available information
+resources used the expressions 'deep learning,' 'machine learning,'
+'deep neural networks,' 'artificial intelligence,' and/or 'AI' to
+describe the technology (similar to @benjamens_etal20a). Third, we
+included products specifically aimed at diagnosing or generating
+treatment recommendations. This led to the exclusion of products that
+exclusively provided mental health treatment, psychopharmaceutical
+products, and technical devices.
+
+We further applied one inclusion criterion referring to the regulatory
+status of the selected products. Specifically, we only included products
+that received a CE (or UKCA) mark or were cleared by the FDA.
+Information about CE and UKCA certificates and FDA clearance was
+confirmed using the European Databank on Medical Devices (EUDAMED)[^3],
+the UK Public Access Registration Database (PARD), and the FDA database.
+
+[^3]: Please note that EUDAMED is not yet declared fully functional, and
+    transitional rules the registration of devices are applicable until
+    it is. That means, the use of EUDAMED is not yet mandatory nor
+    required [@europeancommission23]. Accordingly, not all products that
+    claim to be CE marked were found in EUDAMED.
+
+All vendor websites were checked by two authors and any discrepancies in
+the decision to include or exclude a product based on the inclusion
+criteria were resolved in consensus meetings. We coded information about
+the regulatory status, the entry date of the company, the targeted
+disorder, input data, generated output, product characteristics, product
+main purpose, and the date scientific evidence was published. The
+information was collected from the vendor websites and, if available,
+from regulatory documents. In addition, all vendors were contacted to
+verify and supplement the collected information.
+
+## Scientific evidence
+
+We searched for scientific evidence regarding the efficacy of the
+included products. First, the database PubMed was searched by vendor and
+product name for peer-reviewed articles published until July 25, 2023
+[similar to @vanleeuwen_etal21]. Queries and search results are provided
+in the Online Appendix
+(https://osf.io/vrfm7/?view_only=e027649e3a42428a8975f7385659b55c).
+Second, a manual search was conducted by reviewing the vendor's websites
+for listings of papers and requesting vendors to provide peer-reviewed
+papers.
+
+Included articles were original, peer-reviewed, in English, and aimed to
+demonstrate the efficacy of the AI software. Papers were included when
+the product or company name were mentioned in the title or abstract, the
+tool was applied on in-vivo human data, and the efficacy of the product
+was reported using an independent dataset (data on which the algorithm
+was not trained). Letters, commentaries, reviews, study protocols, white
+papers, and case reports were excluded. Papers were assessed by two of
+the authors who independently screened the title, abstracts, and full
+paper for inclusion criteria. Cases of disagreement were resolved in a
+consensus meeting.
+
+We used the CONSORT-AI (Consolidated Standards of Reporting Trials
+Artificial Intelligence) checklist to evaluate the scientific evidence
+[@liu_etal20q]. The CONSORT-AI extension of the original CONSORT
+checklist [@moher_etal12] includes 14 additional items requiring a clear
+description of the AI intervention, including instructions and skills
+required for use, the setting in which the AI intervention is
+integrated, the handling of inputs and outputs of the AI intervention,
+and provision of an analysis of error cases [@liu_etal20q;
+@tornero-costa_etal23a; @zhou_etal21i]. Information regarding the
+scientific evidence was coded independently by two of the authors. Any
+discrepancies were documented and resolved in consensus meetings.
+
+# Results
+
+```{r}
+library(readxl)
+library(dplyr)
+library(janitor)
+library(stringr)
+db <- read_excel('../../data/Product_review/2023-10-17_certproduct.xlsx', sheet = 'All_products')
+source("../../R/custom-functions.R")
+```
+
+## Inclusion and exclusion of products based on inclusion criteria
+
+```{r}
+#| include: false
+# Records identified through database searching
+patents_firms <- db %>% filter(Source == "Patent_DB") %>% nrow(.)
+
+# Additional records identified through other sources
+other_sources <- db %>% filter(Source != "Patent_DB") %>% nrow(.)
+
+# Records after duplicates removed
+records_after_duplicates <- db %>% filter(`Exclude reason` != "DUPLICATE") %>% nrow(.) 
+
+# Records screened 
+records_after_duplicates
+
+# Records excluded because firm not found (only patents)
+records_notfound <- db %>% filter(`Exclude reason` == "NOT FOUND") %>% nrow(.) 
+
+# Companies assessed for eligibility
+full_text <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% nrow(.)
+
+# Records excluded based on exclusion criteria
+excluded <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% filter(`INCLUDE/EXCLUDE` == "EXCLUDE" & `Exclude reason` != "NOT_REG") %>% nrow(.)
+
+excluded_tab <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% filter(`INCLUDE/EXCLUDE` == "EXCLUDE" & `Exclude reason` != "NOT_REG") %>% select(`Exclude reason`) %>% table(.)
+
+excluded_NOT_MH_MED_DEV <- excluded_tab[1]
+excluded_NOT_AI_SOFTWARE <- excluded_tab[2]
+excluded_NOT_CDSS <- excluded_tab[3]
+
+excluded_NOT_MH_MED_DEV_tab_detail <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% filter(`INCLUDE/EXCLUDE` == "EXCLUDE" & `Exclude reason` != "NOT_REG") %>% filter(`Exclude reason` == "NO MH MEDICAL DEVICE") %>% select(Exclusion_detail) %>% table(.)
+
+excluded_NOT_AI_SOFTWARE_tab_detail <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% filter(`INCLUDE/EXCLUDE` == "EXCLUDE" & `Exclude reason` != "NOT_REG") %>% filter(`Exclude reason` == "NOT AI SOFTWARE") %>% select(Exclusion_detail) %>% table(.)
+
+excluded_NOT_CDSS_tab_detail <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% filter(`INCLUDE/EXCLUDE` == "EXCLUDE" & `Exclude reason` != "NOT_REG") %>% filter(`Exclude reason` == "NOT_CDSS") %>% select(Exclusion_detail) %>% table(.)
+
+
+# Studies included in qualitative synthesis (ignoring exclude reason not reg)
+qual <- db %>% filter(`INCLUDE/EXCLUDE` == "INCLUDE" | `Exclude reason` == "NOT_REG") %>% nrow(.)
+
+# Studies included in quant synthesis 
+quant <- db %>% filter(`INCLUDE/EXCLUDE` == "INCLUDE") %>% nrow(.)
+```
+
+```{r}
+#| include: false 
+db <- db %>%  mutate_at(c('Contacted_date'), ~na_if(., 'NA'))
+db <- db %>%  mutate_at(c('Responded_date'), ~na_if(., 'NA'))
+db <- db %>%  mutate_at(c('Info_obtained'), ~na_if(., 'NA'))
+
+sum(! is.na(db$Contacted_date)) 
+sum(! is.na(db$Responded_date)) 
+sum(db$Info_obtained == "Yes", na.rm = T) 
+```
+
+The PRISMA diagram is shown in Figure 1. Of the initial
+`r records_after_duplicates` product names identified from the patent
+database, exhibitor lists, and other online databases, only
+`r full_text` product websites
+(`r round(full_text/records_after_duplicates*100, 0)`%) could be found.
+In total, we contacted `r sum(! is.na(db$Contacted_date))` vendors, of
+which `r sum(! is.na(db$Responded_date))` responded and
+`r sum(db$Info_obtained == "Yes", na.rm = T)` provided the requested
+information. Of the `r full_text` products that were identified,
+`r qual` (`r round(qual/full_text*100, 0)`%) met our inclusion criteria
+for AI-CDSS. Of those, `r quant` products
+(`r round(quant/qual*100, 0)`%) received CE (UKCA) certification or FDA
+clearance.
+
+```{r}
+#| include: false
+table_exclude <- db %>% filter(`Exclude reason` != "NOT FOUND") %>% filter(`Exclude reason` != "DUPLICATE") %>% filter(`INCLUDE/EXCLUDE` == "EXCLUDE" & `Exclude reason` != "NOT_REG") %>% select(`Exclude reason`) %>% table(.) 
+
+table_exclude
+```
+
+```{r}
+library(PRISMAstatement)
+
+prisma <- prisma(found = patents_firms, 
+       found_other = other_sources,
+       no_dupes = records_after_duplicates,
+       screened = records_after_duplicates,
+       screen_exclusions = records_notfound,
+       full_text = full_text, 
+       full_text_exclusions = excluded, 
+       qualitative = qual, 
+       quantitative = quant,
+       #extra_dupes_box = TRUE,
+       labels = 
+         list(found = paste0("Products identified through \npatent database \n(n = ", patents_firms, ")"), 
+              found_other = paste0("Additional products identified \nthrough exhibitor lists and online databases \n(n = ", other_sources, ")"),
+              no_dupes = paste0("Products after duplicates removed\n(n = ", records_after_duplicates, ")"),
+              screened = paste0("Products screened\n(n = ", records_after_duplicates, ")"),
+              screen_exclusions = paste0("No products found \n(n = ", records_notfound, ")"),
+              full_text = paste0("Products assessed\nfor eligibility\n(n =", full_text, ")"),
+              full_text_exclusions = 
+                paste0("Products excluded (n = ", excluded, "), with reasons:", 
+                       
+                       "\n\n Not mental health medical device (n = ", excluded_NOT_MH_MED_DEV, "):", 
+                       "\n - Not mental health disorder (n = ", excluded_NOT_MH_MED_DEV_tab_detail[2], ")",
+                       "\n - Wellness tool (n = ", excluded_NOT_MH_MED_DEV_tab_detail[4], ")",
+                       "\n - Patient data management (n = ", excluded_NOT_MH_MED_DEV_tab_detail[1], ")",
+                       "\n - Research or education (n = ", excluded_NOT_MH_MED_DEV_tab_detail[3], ")",
+              
+                       "\n\n Not artificial intelligence software (n = ", excluded_NOT_AI_SOFTWARE, ")", 
+              
+                       "\n\nNot clinical decision support (n = ", excluded_NOT_CDSS, "):", 
+                       "\n - Diagnosis or treatment apps for patients (n = ", excluded_NOT_CDSS_tab_detail[1] + excluded_NOT_CDSS_tab_detail[3], ")",
+                       "\n - Psychopharmaceutical products or devices (n = ", excluded_NOT_CDSS_tab_detail[2], ")"),
+              
+              qualitative = paste0("Products fulfilling the inclusion criteria\n(n = ", qual, ")"),
+              quantitative = paste0("Regulated products included in\nquantitative synthesis\n(n = ", quant, ")")))
+
+```
+
+```{r}
+library(tidyverse)  # for %>% pipes
+library(DiagrammeR)
+library(DiagrammeRsvg)  # for conversion to svg
+library(rsvg)  # for saving svg
+
+prisma %>%
+    export_svg() %>%
+    charToRaw %>% 
+    rsvg_png("Figs/prisma.png")
+```
+
+![Figure 1. The PRISMA flow diagram](Figs/prisma.png)
+
+## Overview of identified products
+
+```{r}
+#| include: false
+dbi <- read_excel('../../data/Product_review/2023-10-17_certproduct.xlsx', sheet = 'INCLUDE') 
+```
+
+```{r}
+#| include: false
+#| label: fig-overview
+#| fig-cap: "Targeted disorders, data sources, and generated outputs"
+
+library(tidyr)
+dis_tab <- table(dbi$Disorder)
+
+pie2(dis_tab, labels = str_wrap(paste0(names(dis_tab), " (n = ", dis_tab, ")"), width = 8), cex = 0.9, radius = 0.7)
+
+input <- dbi %>% 
+    mutate(Input = strsplit(as.character(Input), ",")) %>% 
+    unnest(Input) %>% select(Input)
+input <- as.data.frame(apply(input,2, function(x) trimws(x, which = "both")))
+
+inp_tab <- table(input)
+
+pie2(inp_tab, labels = str_wrap(paste0(names(inp_tab), " (n = ", inp_tab, ")"), width = 24), cex = 0.8, radius = 0.7)
+
+
+out_tab <- table(dbi$main_purpose)
+pie2(out_tab, labels = str_wrap(paste0(names(out_tab), " (n = ", out_tab, ")"), width = 10), cex = 0.9, radius = 0.7)
+```
+
+```{r}
+#| include: false
+library(reshape2)
+library(splitstackshape)
+mdt <- dbi %>% select(matches("Product name|Disorder$|main_purpose")) 
+mdt <- cSplit(melt(mdt, id.vars=c("Product name", "main_purpose")), "value", ", ", "long") %>%select(-variable) %>% rename(Disorder = value) 
+mdt_freq <- data.frame(mdt) %>% count(main_purpose) %>% data.frame() %>% arrange(-n) %>% drop_na(main_purpose)
+
+mdt$main_purpose <- str_wrap(mdt$main_purpose, width = 8)
+```
+
+```{r}
+#| include: false
+# plot frequency table
+library(CGPfunctions)
+library(ggplot2)
+disorder_device <- PlotXTabs2(
+  mdt,
+  results.subtitle = FALSE,
+  y = Disorder,
+  x = main_purpose,
+  xlab = "",
+  ylab = NULL,
+  label.fill.alpha = .3,
+  label.text.size = 5.0,
+  legend.title = "Mental disorder",
+  title = "",
+  palette = "Set3",
+  sample.size.label = T,
+  direction = 1
+) +
+  theme(
+    panel.border = element_blank(), 
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(), 
+    axis.line = element_line(colour = "black"),
+    plot.title = element_text(hjust = 0.5, size = 16),
+    text = element_text(size = 15),
+    legend.position = "right",
+    legend.title = element_blank(),
+    aspect.ratio = 1  # adjust aspect ratio here
+  )
+```
+
+```{r}
+#| include: false
+#| label: fig-device-disorder
+#| fig-cap: "Output type by mental disorder"
+disorder_device
+```
+
+```{r}
+library(lubridate)
+dbi_2 <- dbi %>% 
+  mutate(Certification_date = dmy(Certification_date), 
+         Firm_Entry_date_num = as.numeric(Firm_Entry_date),
+         difftime_entry_cert = year(Certification_date) - Firm_Entry_date,
+         Evidence_date1 = as.numeric(Evidence_date1),
+         difftime_evidence_cert = year(Certification_date) - Evidence_date1)
+
+CE_time <- dbi_2 %>% filter(grepl('CE|UKCA', Certification)) %>% summarise(mean = mean(difftime_entry_cert, na.rm = TRUE)) %>% .[[1]]
+FDA_time <- dbi_2 %>% filter(grepl('FDA', Certification)) %>% summarise(mean = mean(difftime_entry_cert, na.rm = TRUE)) %>% .[[1]]
+
+evidence_time <- dbi_2 %>% filter(!grepl('NA', Evidence_date1)) %>% summarise(mean = mean(difftime_evidence_cert, na.rm = TRUE)) %>% .[[1]]
+
+
+# Date difference for founded before and after 2015
+dbi_before2015 <- dbi %>% filter(Firm_Entry_date < 2015) %>% 
+  mutate(Certification_date = dmy(Certification_date), 
+         Firm_Entry_date_num = as.numeric(Firm_Entry_date),
+         difftime_entry_cert = year(Certification_date) - Firm_Entry_date)
+
+dbi_after2015 <- dbi %>% filter(Firm_Entry_date >= 2015) %>% 
+  mutate(Certification_date = dmy(Certification_date), 
+         Firm_Entry_date_num = as.numeric(Firm_Entry_date),
+         difftime_entry_cert = year(Certification_date) - Firm_Entry_date)
+
+dbi_before2015_time <- dbi_before2015 %>% summarise(mean = mean(difftime_entry_cert, na.rm = TRUE)) %>% .[[1]] %>% round(.,1)
+dbi_after2015_time <- dbi_after2015 %>% summarise(mean = mean(difftime_entry_cert, na.rm = TRUE)) %>% .[[1]] %>% round(.,1)
+
+```
+
+Figure 2 displays the dates of company foundation, product
+certification, and the publication of scientific evidence addressing
+product efficiency. Three products received CE Class IIa, one product
+received CE IVD, one product received UKCA Class IIa, and two products
+received FDA Class II regulatory approval. Overall, the mean time passed
+between company foundation and receiving regulatory approval was
+`r CE_time` years for products that received CE (UKCA) marking and
+`r FDA_time` years for products cleared by the FDA. The overall time
+passed between entry for firms that were founded before and including
+2015 and after was `r dbi_before2015_time` and `r dbi_after2015_time`,
+respectively. As can be seen from the figure, scientific evidence
+addressing clinical utility is only available for two of the seven
+products. The mean time passed between the first publication of
+scientific evidence and receiving regulatory approval was
+`r evidence_time` years. In the following, we provide a detailed
+overview of the characteristics of the seven products based on the
+targeted disorder and the product's main purpose.
+
+```{r}
+#| label: fig-timing
+#| fig-cap: "Outputs"
+
+library(ggplot2)
+library(purrr)
+date_dat <- dbi %>% select(`Company name`, `Product name`, Firm_Entry_date, Certification_date, Evidence_date1, Evidence_date2, Certification)
+
+date_dat <- date_dat %>% mutate(Firm_Entry_date = as.Date(paste(Firm_Entry_date, "01-01", sep="-"), format="%Y-%m-%d"),
+                                Evidence_date1 = as.Date(paste(Evidence_date1, "01-01", sep="-"), format="%Y-%m-%d"),
+                                Evidence_date2 = as.Date(paste(Evidence_date2, "01-01", sep="-"), format="%Y-%m-%d"),
+                    Certification_date = as.Date(Certification_date, format="%d.%m.%Y")) %>% mutate(Firm_Entry_date = ifelse(Firm_Entry_date < '2005-01-01', NA, Firm_Entry_date))
+
+date_dat$Firm_Entry_date <- as.Date(date_dat$Firm_Entry_date, origin = "1970-01-01")
+date_dat$Certification_date <- as.Date(date_dat$Certification_date)
+
+# Add this line before ggplot to split the labels
+date_dat <- date_dat %>%
+  mutate(`Product name` = str_wrap(paste0(`Product name`, ' by ', `Company name`), width = 25))
+date_dat <- date_dat %>% arrange(date_dat$Firm_Entry_date)
+date_dat$`Product name` <- factor(date_dat$`Product name`, levels = date_dat$`Product name`)
+
+
+# Then use these modified labs in your ggplot
+overview <- ggplot(date_dat, aes(x = Firm_Entry_date)) +
+  geom_point(aes(y = `Product name`, color = 'Entry date'), size = 3) +
+  geom_point(aes(x = Certification_date, y = `Product name`, color = 'Certification date'), size = 3) +
+  geom_point(aes(x = Evidence_date1, y = `Product name`, color = 'Scientific evidence'), size = 3) +
+  geom_point(aes(x = Evidence_date2, y = `Product name`, color = 'Scientific evidence'), size = 3) +
+  geom_text(aes(x = Certification_date, y = `Product name`, label=Certification), vjust=-1, size = 3)+
+  theme_minimal() +
+  labs(x = "Year", y = "Product", color = "Date Type") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        axis.text.y = element_text(angle = 0),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        aspect.ratio = 0.7) + # Add aspect ratio
+  scale_x_date(date_labels = "%Y", date_breaks = "1 year", limits = as.Date(c('2010-12-31', '2024-12-31'))) +
+  scale_y_discrete(limits=rev) +
+  scale_color_manual(values = c("Entry date" = 'black', "Scientific evidence" = 'blue', "Certification date" = 'red'), 
+                   breaks = c("Entry date", "Scientific evidence", "Certification date"))
+
+```
+
+```{r}
+ggsave(
+  "Figs/overview.png",
+  plot = overview,
+  width = 19, units = "cm")
+```
+
+![Figure 2. Overview of the products included in the review, ordered by date of firm entry. The figure
+shows firm entry dates, dates at which scientific evidence regarding the
+product's clinical utility was published, and certification dates of
+the reviewed AI-CDSS products for mental healthcare.](Figs/overview.png)
+
+### Diagnosis of Autism Spectrum Disorder Among Children Based on Behavioral Data
+
+Two devices were intended for use by healthcare providers as an aid in
+the diagnosis of Autism Spectrum Disorder (ASD) among children, namely
+the Cognoa ASD Diagnosis Aid by Cognoa Medical Affairs and the
+EarliPoint System by EarliTec. Both devices received FDA Class II
+clearance. The Cognoa ASD Diagnosis Aid was cleared through the De Novo
+pathway in November 2020. The EarliPoint System was cleared through the
+510(k) pathway in June 2022, with the Cognoa ASD Diagnosis Aid serving
+as its predicate device.
+
+The Cognoa ASD Diagnosis Aid is intended for use by healthcare providers
+as an aid in the diagnosis of Autism Spectrum Disorder (ASD) for
+patients aged 18 months through 72 months who are at risk for
+developmental delay based on concerns of a parent, caregiver, or
+healthcare provider. The Cognoa ASD Diagnosis Aid utilizes a machine
+learning algorithm to aid in the diagnosis of ASD based on demographic,
+questionnaire, and video data. The input data is acquired via a mobile
+app where the caregiver or parent may upload videos of the patient and
+answer a questionnaire; a video portal for trained analysts to review
+the uploaded videos and answer questions about the patient's behavior;
+and a portal for the healthcare practitioner to answer questions about
+key developmental behaviors for the patient's age group and to access
+the documents and generated results. Following the analysis of the
+combined input data, the algorithm produces a value that is compared to
+predefined thresholds to determine the ASD classification (positive,
+negative, or indeterminate diagnosis) [@usfoodanddrugadministration20;
+@cognoa].
+
+Similar to the ASD Diagnosis Aid, the EarliPoint System by EarliTec is
+intended for use by healthcare providers as an aid in diagnosing Autism
+Spectrum Disorder (ASD) in patients aged 16 through 30 months who are at
+risk of developmental delay. The EarliPoint System implements a machine
+learning model to diagnose ASD based on eye-tracking data collected via
+the EarliPoint Device. The data is obtained by tracking the patient's
+visual responses to social information provided in the form of a series
+of age-appropriate videos. The EarliPoint WebPortal is used to input and
+access patient information and evaluation results. The system provides a
+positive or negative ASD diagnosis [@usfoodanddrugadministration22a;
+@earlitec].
+
+### Diagnosis and Patient Referral Using Conversational Agents
+
+Ada by Ada Health has been CE-certified and UKCA-recognized as a Class
+IIa medical device in December 2022. It includes Ada Assess and the Ada
+Health App for B2B and B2C clients, respectively. Both platforms
+leverage natural language processing and AI algorithms to guide users
+through health conditions and symptoms, including mental health. Ada
+initiates the diagnostic process by collecting demographic details and
+symptom data from the user. The platform interacts with the user,
+prompting them to input information on perceived symptoms, collecting
+details on their severity, duration, and related elements through
+follow-up inquiries. The data is fed through Ada's AI system, which
+evaluates symptoms against known diseases and conditions to propose a
+personalized health assessment, with potential diagnoses. Primarily, the
+Ada Health App is meant for personal use in performing self-assessments
+and accessing health-related information. Meanwhile, Ada Assess offers
+additional tools for partners, extending its functionality beyond an
+individual user's self-assessment. Ada can be employed by mental health
+professionals like psychiatrists or psychotherapists for mental health
+assessments [@jungmann_etal19; @hennemann_etal22; @Ada].
+
+Limbic Access by Limbic AI has been UKCA-recognized as a Class IIa
+medical device in January 2023. Similar to Ada, Limbic Access operates
+by guiding the user to provide basic demographic details along with
+detailed information pertaining to their symptoms. The process initiates
+with the user stating the symptoms they are experiencing. These inputs
+prime Limbic's AI algorithms to probe for more detailed information via
+follow-up questions to offer a comprehensive symptom profile for each
+user. Limbic's AI algorithms evaluate this data in relation to known
+mental disorders and conditions. It then generates a personalized
+assessment, suggesting potential diagnoses based on the reported
+symptoms, similar to Ada's approach. Limbic Access is geared towards
+healthcare providers by saving them time in assessment and
+administration and providing information that helps them to better
+engage with their patients [@limbicai; @rollwage_etal23].
+
+### Mental Health Prescribing Based on Demographic, Clinical, and Genetic Data
+
+The PredictIX Digital and PredictIX Genetic devices are both provided by
+Taliaz. Both devices received CE Classification IIa in December 2022.
+PredictIX Digital uses AI in combination with clinical practice
+guidelines to analyze patients' clinical and socio-demographic
+characteristics and their interactions to derive treatment
+recommendations regarding the optimal medication. PredictIX Genetic
+additionally uses genetic information. The PrdictIX algorithm uses the
+demographic, clinical, and genetic data of the patients to predict
+whether they are a likely responder or nonresponder to a specific
+medication. Both tools yield a personalized patient report for
+psychiatrists and GPs that ranks psychiatric drugs by the predicted
+likelihood of a patient's response. The report also provides insight
+into how patients may metabolize and respond to certain treatments and
+predicts associated side effects and recommended dosages for each
+medication [@taliaz_souery21; @predictix].
+
+NeuroKaire by GenetikaPlus received CE IVD certification in October
+2020. Similar to the PredictIX systems, the goal is to reduce
+trial-and-error in antidepressant selection, providing more effective
+and tailored treatment options. NeuroKaire employs AI-powered algorithms
+to assist physicians in determining the optimal antidepressant treatment
+for patients suffering from MDD. First, information on the patient's
+demographics and clinical history is collected and a blood test is
+taken. Second, a predictive assay is built based on neurobiological
+markers, pharmacogenetics, and patient clinical history. Finally, a
+tailored treatment recommendation is provided, predicting medication the
+patient is most likely to respond to. This report is available for the
+treating practitioner in an application or via website to help support
+the final treatment decision [@albeldas_etal22; @genetikaplus].
+
+```{r}
+#| include: false
+#| label: fig-certificates
+#| fig-cap: "Outputs"
+cert_tab <- table(dbi$Certification)
+
+pie(cert_tab, labels = paste0(names(cert_tab), " (n = ", cert_tab, ")"))
+```
+
+## Scientific evidence
+
+```{r}
+db_evidence <- read_excel('../../data/Product_review/2023-10-17_certproduct.xlsx', skip = 3, sheet = 'CONSORTAI')
+
+db_evidence_eval <- read_excel('../../data/Product_review/2023-10-17_certproduct.xlsx', skip = 3, sheet = 'CONSORTAI_EVAL')
+
+pubmed_query <- sum(db_evidence$PubMed_query, na.rm = T)
+pubmed <- sum(db_evidence$PubMed, na.rm = T)
+manual_query <- sum(db_evidence$Manual, na.rm = T)
+manual <- sum(db_evidence$Manual_relevant, na.rm = T)
+
+library(dplyr)
+Criteria_met <- db_evidence_eval %>% mutate(Criteria_met = rowSums(across(everything(), `%in%`, 1))) %>% select(Criteria_met)
+
+Criteria_not_met <- db_evidence_eval %>% mutate(Criteria_not_met = rowSums(across(everything(), `%in%`, 0))) %>% select(Criteria_not_met)
+
+Criteria_all <- Criteria_met + Criteria_not_met 
+
+round(100*sum(Criteria_met)/sum(Criteria_all),0)
+
+round(100*min(Criteria_met)/Criteria_all[1,1],0)
+
+round(100*max(Criteria_met)/Criteria_all[1,1],0)
+
+
+round(100*Criteria_met[1]/Criteria_all[1,1],0)[1,1]
+```
+
+The search on PubMed yielded a total of `r pubmed_query` papers, from
+which `r pubmed` met the inclusion criteria. Manual search from the
+vendor websites added 1 additional paper, resulting in a total of 3
+included peer-reviewed articles. The overall mean CONSORT-AI score of
+the included trials was
+`r round(100*sum(Criteria_met)/sum(Criteria_all),0)`%. One article
+provided evidence for the effectiveness of the Cognoa ASD Diagnosis Aid
+\[\@kanne_etal18; `r Criteria_met[[1]][[1]]` of
+`r Criteria_all[[1]][[1]]`
+(`r round(Criteria_met[[1]][[1]]/Criteria_all[[1]][[1]], 2)*100`%)
+CONSORT-AI criteria met\] and two for the Ada health app
+[@hennemann_etal22; `r Criteria_met[[1]][[2]]` of
+`r Criteria_all[[1]][[2]]`
+(`r round(Criteria_met[[1]][[2]]/Criteria_all[[1]][[2]], 2)*100`%) and
+@jungmann_etal19 `r Criteria_met[[1]][[3]]` of
+`r Criteria_all[[1]][[3]]`
+(`r round(Criteria_met[[1]][[3]]/Criteria_all[[1]][[3]], 2)*100`%)
+CONSORT-AI criteria met].
+
+The compliance of the included articles to each of the individual
+CONSORT-AI criteria ("Overview CONSORT-AI") may be accessed through the
+Online Appendix
+(https://osf.io/vrfm7/?view_only=e027649e3a42428a8975f7385659b55c).
+Because none of the trials were randomized controlled trials, the
+CONSORT-AI criteria pertaining to randomization were not met (items 1a,
+8a, 8b, 9, and 10, and 11b). In addition, none of the trials reported
+changes to methods or trial outcomes after the trial commenced, or
+conducted interim analyses (3b, 6b, and 7b). Additionally, none of the
+trials indicated that the intervention involves artificial
+intelligence/machine learning in the title and/or abstract and specified
+the type of model (1a(i)), stated the inclusion and exclusion criteria
+at the level of the input data (4a-ii), described how the input data
+were acquired and selected for the AI intervention (5-ii), specified
+whether there was human--AI interaction in the handling of the input
+data, and what level of expertise was required of users (5-iv),
+described how the sample size was determined (7a), described why the
+trial ended or was stopped (14b), reported all important harms or
+unintended effects in each group (19), described results of any analysis
+of performance errors and how errors were identified, or justified why
+such an analysis was not performed (19-i), provided the trial
+registration number and name of trial registry (23), indicated where the
+full trial protocol can be accessed (24), and stated whether and how the
+AI intervention and/or its code can be accessed, including any
+restrictions to access or re-use (25-i).
+
+The first study examined the clinical utility of the Cognoa ASD
+Diagnosis Aid \[\@kanne_etal18\]. It involved 230 children from three
+autism clinics in the United States. All participants completed the
+Cognoa screener and other autism screening instruments before their
+clinic visit. The Cognoa screener uses a 15-item parent-report
+questionnaire and a 1-2 minute home video observation of the child that
+was analyzed by clinical raters. The Cognoa ASD Diagnosis Aid accurately
+identified children 71% of the time across the entire 18--72-month age
+range. It showed high specificity (0.62) and sensitivity (0.75) in
+detecting ASD. However, only specificity (not sensitivity) was higher
+than that of other screening instruments. The study discusses challenges
+associated with mobile screening tools like the ASD Diagnosis Aid,
+including the need for technological access and understanding, and the
+requirement of clinical review of video submissions.
+
+The second and third studies examined the clinical utility of ADA
+[@hennemann_etal22; @jungmann_etal19]. The study by @hennemann_etal22
+included a sample of 49 adult patients at an outpatient psychotherapy
+clinic. The performance of the app was assessed by comparing the
+condition suggestions provided by the app with the diagnoses made by
+therapists using structured clinical interviews. Alongside this
+comparison, the study also evaluated the usability and acceptance of
+Ada. The results showed that Ada was able to match therapists' diagnoses
+in 51% of cases for its first condition suggestion, and 69% of cases for
+one of the top five suggestions. There was variance in accuracy across
+different disorder categories, with the highest found for somatoform and
+associated disorders (0.82) and the lowest for anxiety disorders (0.53).
+It was concluded that Ada could potentially be a useful screening tool,
+demonstrating moderate-to-good accuracy, though this performance does
+vary across disorder categories.
+
+The aim of the study by @jungmann_etal19 was to examine the diagnostic
+accuracy of Ada in identifying a variety of mental disorders. The study
+included a sample of two psychotherapists, two psychology students, and
+two laypersons. The six participants used the Ada app to diagnose 20
+case vignettes describing various mental disorders. The app's diagnosis
+was then compared with the textbook diagnosis, assessing interrater
+reliability using the Cohen kappa coefficient. The results revealed a
+moderate agreement (kappa=0.64) in diagnosing adult mental disorders and
+a lower agreement (kappa=0.40) for child and adolescent mental
+disorders. The diagnostic accuracy was higher among psychotherapists
+than among the other two groups. The app required, on average, 34
+questions and took about 7 minutes per case. The findings suggests that
+expert knowledge can enhance the diagnostic quality when using the app.
+
+## Exploratory results: Unregulated products
+
+We encountered news articles and press releases revolving around
+concerns associated with regulatory approval of products that met our
+inclusion criteria for AI-CDSS, but were not regulated as of October
+2023. One example is AvertD by SOLVD, a genetic risk assessment tool for
+opioid use disorder (OUD). SOLVD conducted a clinical trial to support
+the evidence for AvertD's clinical utility in April 2020. A subsequent
+De Novo request was declined by the FDA. The FDA prompted the company to
+re-submit a De Novo request, supplemented with additional information.
+Multiple interactions with the FDA led to the company submitting a
+second De Novo request for their product in 2022 aiming to address the
+FDA's pending concerns. However, the FDA again denied the clearance of
+AvertD by an 11-2 vote. The committee expressed concerns regarding
+AvertD's clinical validity, safety evaluation, prescribing patterns
+after testing, potential false positives and negatives, and
+underrepresentation in the sample population used in the clinical study
+[@george22; @solvd].
+
+As another example, diaMentis, a Canadian medical technology developer,
+announced that its diagnostic technology for mental health has been
+approved for the FDA's Breakthrough Devices Program (BDP). The BDP is
+designed to accelerate the development and review process for certain
+medical devices which aid in providing more effective treatment or
+diagnosis for life-threatening diseases or conditions which are
+irreversibly debilitating. Acceptance into the BDP does not equate to
+the product being approved or regulated by the FDA
+[@usfoodanddrugadministration23]. diaMentis' tool provides a method for
+diagnosing mental health disorders such as bipolar and schizophrenia.
+The technology analyses information obtained from an eye examination to
+ascertain markers indicative of mental disorders [@diamentis20].
+
+Finally, MEB-001 by Medibio, a device in assessing physiological
+parameters that provide a clinically significant depressive burden
+screener, has submitted a request to be accepted into the BDP in
+February 2023. However, the request was dismissed by the FDA in July
+2023. The company is still pursuing clearance for their product via the
+De Novo pathway. In spite of the initial rejection, Medibio remains on
+track with its trial initiatives. The company anticipates that the
+results from these initiatives will provide the requisite data to inform
+their continued engagement with the FDA. Medibio expects to schedule a
+pre-submission meeting with the regulatory body during the last quarter
+of 2023, providing a clear time frame on the regulatory approval process
+[@medibio23a; @medibio23].
+
+# Discussion
+
+The aim of the review was to increase transparency in the field of
+commercially available and regulated AI-CDSS in mental healthcare. Our
+results demonstrate that the market is still in its very infancy. We
+could identify only `r quant` products that obtained FDA clearance or CE
+marking. The fact that all products received regulatory approval in the
+past four years may be an explanation for this. That is, in contrast to
+the substantial number of AI approaches for deriving diagnoses and
+selecting treatments described in scientific publications
+[@aafjes-vandoorn_etal21; @chekroud_etal21; @cho_etal19; @graham_etal19;
+@shatte_etal19], we still await to discover the impact commercially
+available products may have in clinical practice. The average time
+passed between company foundation and product regulation was
+`r FDA_time` years for CE (or UKCA) certification and `r FDA_time` for
+FDA clearance. More time passed between company foundation and obtaining
+regulatory approval among companies founded earlier (before and
+including 2015) than companies founded later, namely
+`r dbi_before2015_time` versus `r dbi_after2015_time` years. This
+finding suggests two interpretations: Later founded companies learned
+from their predecessors, thus being better prepared when submitting
+their request for regulatory oversight [@muehlematter_etal23]; or
+regulatory agencies adjusted the regulatory process to be better
+prepared for new market developments, including the oversight of AI-CDSS
+for mental healthcare. The first interpretation is supported by the fact
+that one device (the Cognoa ASD Diagnosis Aid) served as a predicate
+device for the EarliPoint System by EarliTec, for which the time passed
+between company foundation and regulatory approval was remarkably
+shorter (three years versus seven years).
+
+It is remarkable that of the 240 product names identified through the
+patent database and searches in exhibitor lists and other online
+databases, only 84 product websites could actually be found. This
+finding suggests that there is a considerable gap between the number of
+AI products patented and those commercially available. This may be
+because translating an idea or prototype into a market-ready product
+involves considerable financial resources, technical expertise, and
+time. Accordingly, many products may not reach the market due to
+commercialization hurdles, such as technological difficulties,
+insufficient investment or a lack of market demand. Additionally,
+patented inventions may have been abandoned or paused due to a change in
+the company's strategic direction, technical feasibility issues, or
+market dynamics [@middleton21; @eriksen14]. Moreover, after patenting,
+medical devices need to undergo rigorous testing to confirm their safety
+and effectiveness before they can be sold. As demonstrated by the
+exploratory insight gained from news articles and press releases,
+devices that fail to pass these tests may not become commercially
+available or there may be a considerable time lag between patenting a
+product, gaining clearance or approval, and finally releasing it to the
+market [@kaplan_etal04; @benjamens_etal20a].
+
+Of the `r full_text` products that were found online, `r qual` met our
+inclusion criteria for AI-CDSS. Of those, only `r quant` products
+received CE (or UKCA) certification or FDA clearance. AI-CDSS products
+are categorized as medical devices, thus, they are subjected to a
+similar level of scrutiny as more traditional healthcare products.
+However, the technology's rapid development speed, combined with AI's
+complexity, can make it difficult for regulatory bodies to assess these
+products adequately and within a reasonable time frame
+[@harrington_johnson19; @allen19; @potnis_etal22]. The AI algorithms'
+inherent "black-box" nature - the inability to explain how they reach
+certain conclusions - raises unique challenges in a process built on
+transparency and understanding. Further, obtaining regulatory approval
+requires substantial time, money, and resources, which are often
+significant constraints for start-ups or smaller companies
+[@lee_etal21k]. Finally, one of the greatest benefits of AI resides in
+its ability to learn from real-world use and experience, and its
+capability to improve its performance. However, currently, the FDA and
+EEA and GB national authorities have only approved devices that use
+"locked" algorithms which provide the same result each time
+[@vokinger_etal21]. The current regulations are still not adjusted for
+adaptive algorithms which change and evolve frequently. As a solution,
+the FDA is considering a total-product life cycle-based regulatory
+framework which allows real-world learning and adaptability while
+maintaining the safety and effectiveness of the software
+[@beckers_etal21; @vokinger_etal21]. Concrete suggestions include
+collaborative efforts of manufacturers and regulatory agencies to
+generate a list of allowable changes and modifications of approved
+algorithms. Regular updates about planned changes and periodic reviews
+of accumulated changes may prevent unintended divergence from the
+software's eventual performance and intended use [@vokinger_etal21;
+@zanca_etal22].
+
+There is limited published scientific evidence related to the efficacy
+of the identified AI-CDSS. The inability to retrieve any scientific
+peer-reviewed papers regarding five of the seven AI products connotes
+either a lack of research in these areas or a potential publication bias
+against studies with negative results. This could represent an important
+limitation in the field's current knowledge and understanding of the
+efficacy of these AI products. This phenomenon is not limited to AI
+devices in the mental health context, but affects AI healthcare devices
+in general. Specifically, it has been found that most AI-enabled medical
+devices in the US and Europe are cleared without new clinical trials,
+depriving patients and clinicians of crucial information needed to make
+informed diagnostic and treatment decisions [@vokinger_etal21].
+Additionally, none of the papers adhered to all CONSORT-AI criteria,
+demonstrating that despite some evaluation of the AI products' efficacy,
+the quality and reporting of these findings is still subpar based on
+established guidelines like the CONSORT-AI. Similar levels of quality of
+scientific evidence have been reported for AI algorithms used in other
+healthcare domains [@pattathil_etal23]. Areas that should receive
+special attention in future studies are the sample size calculation, the
+description of human-AI-interaction, data acquisition and selection,
+reporting of data preparation and preprocessing steps, describing how
+the data was analyzed, reporting any unintended potential harms
+associated with using the device, and registration of the study
+protocol, and describing whether and if yes, where the code used to
+generate recommendations may be accessed. Finally, none of the
+identified studies were randomized controlled trials (RCTs). RCTs are
+considered the gold standard in determining the effectiveness of an
+intervention. Their implementation in evaluating AI-CDSS for mental
+healthcare could play a vital role in accurately proving their clinical
+utility and ensuring the efficacy of these devices in real-world
+settings [@lam_etal22].
+
+## Limitations
+
+The findings revealed that all of the products obtained regulatory
+approval within the past four years, indicating that this market is
+still emerging. This study, therefore, provides only an initial look at
+the landscape of AI-CDSS for mental healthcare. Future research could
+involve an updated analysis to identify changes and growth within the
+landscape. Considering the infancy of the market, such future studies
+are crucial to keeping pace with rapid development and understanding its
+implications for mental healthcare.
+
+The applied inclusion criteria necessarily limit the generalizability of
+the insight. Specifically, we only included AI-CDSS that provide
+diagnostic and treatment recommendations, thus excluding other relevant
+product categories within mental healthcare, such as treatment devices
+or patient-facing apps [@milne-ives_etal22; @bohr_memarzadeh20]. Future
+reviews may explore and compare the scope, regulatory status, and
+scientific evidence associated with AI tools used for different aspects
+of patient care by different user groups. Moreover, the current review
+is limited to tools used in the US, EEA, or the UK. If a product has
+acquired certification from other world regulatory bodies, such as
+China's National Medical Products Administration (NMPA), it was
+excluded, necessarily limiting the generalizability of the gained
+insight to specific economic areas.
+
+Finally, using vendors' websites and regulatory documents may not yield
+complete or accurate data, since vendors may purposefully or
+inadvertently misrepresent product information. The information
+collected may not reflect the actual capabilities, limitations or
+clinical applications of the devices. Data collection posed a
+significant challenge. Multiple vendors failed to respond or chose not
+to share certain information we requested. Although an effort was made
+to supplement the missing data with publicly accessible information, the
+limited availability of information beyond publicly available online
+content may influence the reviews' findings and implications.
+
+## Conclusions
+
+Out of a broad initial pool, a limited number of products met the
+inclusion criteria for AI-CDSS for mental healthcare and were regulated
+(CE/UKCA or FDA). With only a fraction receiving FDA approval or CE
+(UKCA) certification, the report underlines the challenges and
+complexity involved in bringing an AI-CDSS product for mental healthcare
+to the market. For healthcare providers, it means a more careful and
+thorough evaluation of these products is necessary due to the limited
+number of regulated products and the lack of solid scientific evidence
+indicating their clinical utility. For vendors or developers of AI-based
+medical products, these findings underscore the importance of conducting
+robust clinical studies both to prove clinical utility and to meet
+regulatory standards. For regulators, the findings emphasize the
+emerging challenges posed by AI-based technologies in healthcare in
+general, and in mental healthcare in particular. Several suggestions
+have been made on how to adjust existing regulatory frameworks to ensure
+the safety and effectiveness of marketed AI-CDSS for mental healthcare.
+
+# References
+
+::: {#refs custom-style="Bibliography"}
+:::
